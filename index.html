@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#caa3d9">
+  <link rel="apple-touch-icon" href="icone.jpg">
+  <link rel="icon" href="icone.jpg">
+  <title>Agenda Manicure</title>
+</head>
+<body>
+  <div class="container">
+    <div class="topo">
+      <h1>Maira Ribeiro</h1>
+      <span>Manicure & Pedicure</span>
+    </div>
+
+    <div id="formulario">
+      <h2>Agendar Horário</h2>
+      <label class="label-input">Nome da cliente:</label>
+      <input type="text" id="nome">
+      <label class="label-input">Dia:</label>
+      <input type="date" id="data">
+      <label class="label-input">Hora:</label>
+      <input type="time" id="hora">
+
+      <div class="servicos">
+        <label class="radio-box">
+        <input type="radio" name="servico" value="Pé e Mão">Pé e Mão</label>
+
+        <label class="radio-box">
+        <input type="radio" name="servico" value="Só Mão">Só Mão</label>
+
+        <label class="radio-box">
+        <input type="radio" name="servico" value="Só Pé">Só Pé</label>
+      </div>
+
+      <button onclick="marcarHorario()">Marcar horário</button>
+      <button onclick="abrirAgenda()">Consultar agenda</button>
+
+      <p id="mensagem"></p>
+    </div>
+
+    <div id="agenda" style="display:none;">
+      <h2>Agenda do Mês</h2>
+      <div id="calendario"></div>
+      <div id="listaDia"></div>
+
+      <button onclick="voltar()">Voltar</button>
+    </div>
+
+  </div>
+  <div id="modalExcluir" class="modal">
+    <div class="modal-box">
+      <p>Deseja realmente excluir este agendamento?</p>
+        <div class="modal-botoes">
+          <button class="btn-cancelar" onclick="fecharModal()">Cancelar</button>
+          <button class="btn-excluir" onclick="confirmarExclusao()">Excluir</button>
+        </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}
+</script>
+</body>
+</html>
+
